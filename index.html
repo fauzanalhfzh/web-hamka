@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HAMKA💨</title>
+    <link rel="stylesheet" href="dist/output.css" />
+    <!-- fonts google poppins start -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- fonts google poppins end -->
+
+    <!-- icons google start -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <!-- icons google start -->
+
+    <!-- localstorage darkmode -->
+    <script>
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+  </head>
+
+  <body id="home">
+    <!-- Header start -->
+    <header class="fixed bg-transparent top-0 left-0 w-full flex items-center z-10 dark:text-white"
+    >
+      <div class="container">
+        <div class="flex items-center justify-between relative">
+          <div class="px-4 flex items-center">
+            <a href="#" class="px-1 text-base font-medium flex items-center">
+              <img src="dist/img/logo.png" alt="Logo" class="py-3 h-16 mr-3" />
+              <span class="font-semibold self-center whitespace-nowrap"
+                >HAMKA</span
+              >
+            </a>
+          </div>
+          <div class="flex items-center ">
+            <div class="flex">
+              <span class="mr-2 mt-1 text-sm text-slate-500 dark:text-white">Light</span>
+              <input type="checkbox" class="hidden" id="dark-toggle" />
+              <label for="dark-toggle" >
+                <div
+                  class="flex mx-2 md:mx-0 h-8 w-8 md:h-8 md:w-8 checked:scale-0 cursor-pointer items-center rounded-full bg-slate-200 dark:bg-white p-1"
+                >
+                  <div
+                    class="toggle-circle relative top-0 h-6 w-6 md:h-6 md:w-6 rounded-full bg-[#FFD700] dark:bg-slate-500 transition duration-300 ease-in"
+                  ></div>
+                </div>
+              </label>
+              <span class="ml-2 mt-1 text-sm text-slate-500 dark:text-white" >Dark</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Navbar bottom Start -->
+    <div class="w-10/12 h-16 max-w-lg -translate-x-1/2 bg-white border border-gray-200 dark:border-indigo-900 rounded-full bottom-4 left-1/2 navbarBottom-fixed"
+    >
+      <div class="grid h-full max-w-lg grid-cols-5 mx-auto">
+        <button
+          data-tooltip-target="tooltip-home"
+          type="button"
+          class="inline-flex flex-col items-center justify-center px-5 rounded-l-full hover:bg-gray-300 dark:hover:bg-gray-800 group"
+        >
+          <a href="#home">
+            <svg
+              class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-white"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"
+              />
+            </svg>
+          </a>
+          <span class="sr-only">Home</span>
+        </button>
+        <div
+          id="tooltip-home"
+          role="tooltip"
+          class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+        >
+          Home
+          <div class="tooltip-arrow" data-popper-arrow></div>
+        </div>
+        <button
+          data-tooltip-target="tooltip-About"
+          type="button"
+          class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-300 dark:hover:bg-gray-800 group"
+        >
+          <a href="#about">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-white"
+            >
+              <path
+                d="M11.25 5.337c0-.355-.186-.676-.401-.959a1.647 1.647 0 01-.349-1.003c0-1.036 1.007-1.875 2.25-1.875S15 2.34 15 3.375c0 .369-.128.713-.349 1.003-.215.283-.401.604-.401.959 0 .332.278.598.61.578 1.91-.114 3.79-.342 5.632-.676a.75.75 0 01.878.645 49.17 49.17 0 01.376 5.452.657.657 0 01-.66.664c-.354 0-.675-.186-.958-.401a1.647 1.647 0 00-1.003-.349c-1.035 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401.31 0 .557.262.534.571a48.774 48.774 0 01-.595 4.845.75.75 0 01-.61.61c-1.82.317-3.673.533-5.555.642a.58.58 0 01-.611-.581c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.035-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959a.641.641 0 01-.658.643 49.118 49.118 0 01-4.708-.36.75.75 0 01-.645-.878c.293-1.614.504-3.257.629-4.924A.53.53 0 005.337 15c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.036 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.369 0 .713.128 1.003.349.283.215.604.401.959.401a.656.656 0 00.659-.663 47.703 47.703 0 00-.31-4.82.75.75 0 01.83-.832c1.343.155 2.703.254 4.077.294a.64.64 0 00.657-.642z"
+              />
+            </svg>
+          </a>
+          <span class="sr-only">About</span>
+        </button>
+        <div
+          id="tooltip-About"
+          role="tooltip"
+          class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+        >
+          About
+          <div class="tooltip-arrow" data-popper-arrow></div>
+        </div>
+        <div class="flex items-center justify-center" id="navJoinButton">
+          <a href="#daftar">
+            <button
+              data-tooltip-target="tooltip-new"
+              type="button"
+              class="inline-flex items-center justify-center w-10 h-10 font-medium bg-primary rounded-full hover:bg-indigo-700 group focus:ring-4 focus:ring-indigo-300 focus:outline-none dark:focus:ring-blue-800 hover:animate-pulse dark:bg-darkSecondary"
+            >
+              <svg
+                class="w-4 h-4 text-white dark:text-dark"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 18 18"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 1v16M1 9h16"
+                />
+              </svg>
+              <span class="sr-only">Join</span>
+            </button>
+          </a>
+        </div>
+        <div
+          id="tooltip-new"
+          role="tooltip"
+          class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+        >
+          bergabung sekarang
+          <div class="tooltip-arrow" data-popper-arrow></div>
+        </div>
+        <button
+          data-tooltip-target="tooltip-settings"
+          type="button"
+          class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-300 dark:hover:bg-gray-800 group"
+        >
+          <a href="#gallery">
+            <svg
+              class="w-8 h-8 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="{1.5}"
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+              />
+            </svg>
+          </a>
+          <span class="sr-only">Gallery</span>
+        </button>
+        <div
+          id="tooltip-settings"
+          role="tooltip"
+          class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+        >
+          Gallery
+          <div class="tooltip-arrow" data-popper-arrow></div>
+        </div>
+        <button
+          data-tooltip-target="tooltip-profile"
+          type="button"
+          class="inline-flex flex-col items-center justify-center px-5 rounded-r-full hover:bg-gray-300 dark:hover:bg-gray-800 group"
+        >
+          <svg
+            class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-white"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"
+            />
+          </svg>
+          <span class="sr-only">Profile</span>
+        </button>
+        <div
+          id="tooltip-profile"
+          role="tooltip"
+          class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+        >
+          Profile
+          <div class="tooltip-arrow" data-popper-arrow></div>
+        </div>
+      </div>
+    </div>
+    <!-- Navbar bottom End -->
+
+    <!-- Home Section Start -->
+    <section id="home" class="pt-24 pb-32 md:-pr-28 md:pt-16 dark:bg-dark">
+      <div class="container">
+        <div class="flex flex-wrap">
+          <div class="w-full self-center px-4 lg:w-1/2">
+            <h1
+              class="text-[52px] font-bold text-primary dark:text-darkSecondary pb-2 text-justify md:text-7xl"
+            >
+              Hallooo👋 !
+            </h1>
+            <h2 class="text-2xl font-bold text-primary dark:text-darkSecondary md:text-2xl">
+              SOBAT HAMKERSS,
+              <span class="block font-semibold text-dark dark:text-white text-xl mt-2">
+                Selamat datang di Website Himpunan Mahasiswa Komputer dan
+                Akuntasi!</span
+              >
+            </h2>
+            <h3
+              class="font-medium text-base text-secondary max-w-xl lg:text-lg mb-6"
+            >
+              Mari bergabung dalam Himpunan kami di Himpunan Mahasiswa Komputer
+              dan Akuntasi. Selamat datang di tempat di mana ilmu komputer dan
+              akuntansi berkumpul untuk berkembang bersama!
+            </h3>
+            <a
+              href="#daftar"
+              id="joinButton"
+              class="text-base font-semibold bg-primary dark:bg-darkSecondary dark:text-dark text-white px-8 py-4 rounded-xl hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out"
+              >Bergabung Sekarang!</a
+            >
+          </div>
+          <div class="w-full self-end px-4 lg:w-1/2">
+            <img
+              src="dist/img/charakter.png"
+              alt="charakter"
+              class="max-w-full mx-auto mt-4 h-96 md:h-[500px]"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Home Section End -->
+
+    <!-- about Section Start -->
+    <section id="about" class="pt-8 pb-32 bg-slate-800">
+      <div class="container">
+        <div class="flex flex-wrap">
+          <div class="w-full px-4 mt-8 lg:w-1/2">
+            <h4 class="font-bold uppercase text-indigo-200 text-lg mb-3">
+              Tentang Kami
+            </h4>
+            <h2
+              class="font-bold text-white text-3xl mt-5 mb-3 max-w-md lg:text-5xl lg:max-w-xl"
+            >
+              Sekilas Tentang Kami
+            </h2>
+            <p
+              class="font-medium text-base text-white max-w-xl lg:text-lg mb-3"
+            >
+              Himpunan Mahasiswa Komputer dan Akuntansi STTIKOM Insan Unggul,
+              atau yang biasa di sebut HAMKA adalah sebuah himpunan mahasiswa
+              yang bergerak untuk mengembangakan minat dan bakat seluruh
+              mahasiswa STTIKOM Insan Unggul Cilegon.
+            </p>
+          </div>
+          <div class="w-full px-4 mt-8 lg:pt-16 lg:w-1/2">
+            <h2
+              class="font-bold text-white text-2xl mt-5 mb-3 max-w-md lg:text-3xl lg:max-w-xl"
+            >
+              Mari Berteman
+            </h2>
+            <p
+              class="font-medium text-base text-white max-w-xl lg:text-lg mb-3"
+            >
+              Kunjungi juga sosial media kami untuk melihat lebih banyak karya
+              inspiratif dan pembaruan terbaru. Jangan lewatkan konten eksklusif
+              dan insight yang kami bagikan di platform sosial kami. Mari kita
+              terhubung dan berinteraksi lebih dekat!
+            </p>
+
+            <!-- Icons sosmed -->
+            <div class="flex items-center justify-center">
+              <!-- Instagram -->
+              <a
+                href="https://www.instagram.com/hamka_siu"
+                target="_blank"
+                class="w-9 h-9 mr-3 rounded-full flex items-center justify-center border border-slate-300 text-slate-300 hover:bg-white hover:border-white hover:text-primary"
+              >
+                <svg
+                  role="img"
+                  class="fill-current"
+                  width="20"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>Instagram</title>
+                  <path
+                    d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"
+                  />
+                </svg>
+              </a>
+              <!-- Tiktok -->
+              <a
+                href="https://www.tiktok.com/@hamka_siu?_t=8gpwU7QZub3&_r=1"
+                target="_blank"
+                class="w-9 h-9 mr-3 rounded-full flex items-center justify-center border border-slate-300 text-slate-300 hover:bg-white hover:border-white hover:text-primary"
+              >
+                <svg
+                  role="img"
+                  class="fill-current"
+                  width="20"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>TikTok</title>
+                  <path
+                    d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="w-full px mt-8 lg:w-1/2">
+            <h1
+              class="font-bold text-white text-xl mt-5 max-w-full lg:text-3xl lg:max-w-xl"
+            >
+              Apakah HAMKA ini cocok dengan Kamu?
+            </h1>
+            <p
+              class="font-medium text-base text-white max-w-xl lg:text-lg mb-3"
+            >
+              Yuk, mari bergabung dalam Himpunan Mahasiswa Komputer dan
+              Akuntansi! Di sini, Anda akan menemukan peluang luar biasa untuk
+              berkembang, berkolaborasi, dan meraih sukses bersama komunitas
+              kami. Setelah bergabung dengan Himpunan Mahasiswa Komputer dan
+              Akuntansi, Anda akan mendapatkan sejumlah keuntungan, termasuk:
+            </p>
+          </div>
+          <div class="w-full px mt-8 mx-auto lg:pt-20 lg:w-1/2">
+            <ul>
+              <div class="flex">
+                <span
+                  class="material-symbols-outlined text-indigo-200 mx-2 lg:pt-1"
+                  >send</span
+                >
+                <li
+                  class="font-medium text-base text-white max-w-xl lg:text-lg mb-3"
+                >
+                  Terlibat dalam kegiatan amal dan memberikan dampak positif
+                  pada komunitas.
+                </li>
+              </div>
+              <div class="flex">
+                <span
+                  class="material-symbols-outlined text-indigo-200 mx-2 lg:pt-1"
+                  >send</span
+                >
+                <li
+                  class="font-medium text-base text-white max-w-xl lg:text-lg mb-3"
+                >
+                  Mengasah kemampuan komunikasi, kepemimpinan, dan manajemen
+                  waktu.
+                </li>
+              </div>
+              <div class="flex">
+                <span
+                  class="material-symbols-outlined text-indigo-200 mx-2 lg:pt-1"
+                  >send</span
+                >
+                <li
+                  class="font-medium text-base text-white max-w-xl lg:text-lg mb-3"
+                >
+                  Merasa seperti memiliki keluarga kedua dengan dukungan dan
+                  persahabatan yang kuat.
+                </li>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- about Section end -->
+
+    <!-- Gallery Section Start  -->
+    <section id="gallery" class="pt-36 pb-32 bg-slate-100 dark:bg-dark">
+      <div class="container">
+        <div class="w-full px-4">
+          <div class="max-w-full mx-auto md:text-center mb-16">
+            <h4 class="font-semibold text-primary text-lg mb-2 dark:text-darkSecondary">Gallery</h4>
+            <h2
+              class="font-bold text-3xl mb-4 text-dark dark:text-white sm:text-4xl lg:text-5x"
+            >
+              Momen indah bersama!
+            </h2>
+            <p class="font-medium text-md text-secondary md:text-lg">
+              Selamat datang di galeri kami, tempat di mana kami berbagi
+              momen-momen berharga, perjalanan inspiratif, dan keseruan bersama
+              dalam perjalanan himpunan kami. Jelajahi dan nikmati cerita-cerita
+              visual kami yang memukau.
+            </p>
+          </div>
+        </div>
+        <div
+          class="w-full px-4 flex flex-wrap justify-center xl:mx-auto xl:w-10/12"
+        >
+          <div
+            class="flex rounded-md shadow-md overflow-hidden m-2 md:m-4 md:w-1/4"
+          >
+            <img src="dist/img/gallery/1.JPG" alt="" />
+          </div>
+          <div
+            class="flex rounded-md shadow-md overflow-hidden m-2 md:m-4 md:w-1/4"
+          >
+            <img
+              src="dist/img/gallery/2.JPG"
+              alt=""
+              class="hidden md:flex"
+            />
+          </div>
+          
+          <div
+            class="flex rounded-md shadow-md overflow-hidden m-4 md:m-4 md:w-1/4"
+          >
+            <img
+              src="dist/img/gallery/4.JPG"
+              alt=""
+              class="hidden md:flex"
+            />
+          </div>
+          <div
+            class="flex rounded-md shadow-md overflow-hidden m-4 md:m-4 md:w-1/4"
+          >
+            <img src="dist/img/gallery/5.JPG" alt="" />
+          </div>
+          <div
+            class="flex rounded-md shadow-md overflow-hidden m-4 md:m-4 md:w-1/4"
+          >
+            <img src="dist/img/gallery/3.JPG" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Gallery Section End  -->
+
+    <!-- form daftar Start -->
+    <section id="daftar" class="pt-36 pb-32 hidden dark:bg-dark">
+      <div class="container">
+        <div class="w-full px-4">
+          <div class="max-w-full mx-auto md:text-center mb-16">
+            <h4 class="font-semibold text-primary text-lg mb-2 dark:text-darkSecondary">
+              Daftar Sekarang
+            </h4>
+            <h2 class="font-bold text-xl mb-4 text-dark sm:text-3xl lg:text-5x dark:text-white">
+              🤘 Jadilah Bagian Keluarga Besar HAMKA 🤘
+            </h2>
+            <p class="font-medium text-md text-secondary md:text-lg">
+              Tingkatkan pengalaman kuliah Anda dengan bergabung dalam Himpunan
+              Mahasiswa Komputer dan Akuntansi kami. Temukan peluang kolaborasi
+              yang menginspirasi dan tingkatkan pengetahuan Anda dalam kedua
+              bidang ini bersama komunitas yang bersemangat.
+            </p>
+          </div>
+        </div>
+
+        <form name="submit-to-google-sheet">
+          
+          <!--form  -->
+          <div class="w-full lg:w-2/3 lg:mx-auto">
+            <div class="w-full px-4 mb-8">
+              <label for="NIM" class="text-base font-bold text-primary dark:text-darkSecondary "
+                >NIM</label
+              >
+              <input
+                type="text"
+                id="NIM"
+                name="NIM"
+                class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
+              />
+            </div>
+            <div class="w-full px-4 mb-8">
+              <label for="nama" class="text-base font-bold text-primary dark:text-darkSecondary "
+                >Nama</label
+              >
+              <input
+                type="text"
+                id="nama"
+                name="Nama"
+                class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary" 
+              />
+            </div>
+            <div class="w-full px-4 mb-8">
+              <label for="kelas" class="text-base font-bold text-primary dark:text-darkSecondary "
+                >Kelas</label
+              >
+              <input
+                type="text"
+                id="kelas"
+                name="Kelas"
+                class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
+              />
+            </div>
+
+            <div class="w-full px-4 mb-8">
+              <h1 class="text-base font-bold text-primary dark:text-darkSecondary ">Jurusan</h1>
+              <select
+                name="Jurusan"
+                class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
+              >
+                <option value="none">Pilih jenis Jurusan</option>
+                <option value="Teknik Informatika">Teknik Informatika</option>
+                <option value="Komputerisasi Akuntansi">
+                  Komputerisasi Akuntansi
+                </option>
+                <option value="anajemen Informatika">
+                  Manajemen Informatika
+                </option>
+              </select>
+            </div>
+
+            <div class="w-full px-4 mb-8">
+              <h1 class="text-base font-bold text-primary dark:text-darkSecondary ">Jenis Kelamin</h1>
+              <select
+                name="Jenis-Kelamin"
+                class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
+              >
+                <option value="none">Pilih jenis kelamin</option>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="perempuan">perempuan</option>
+                <option value="other">lainnya</option>
+              </select>
+            </div>
+
+            <div class="w-full px-4 mb-8">
+              <label for="tempatLahir" class="text-base font-bold text-primary dark:text-darkSecondary "
+                >Tempat lahir</label
+              >
+              <input
+                type="text"
+                name="Tempat-Lahir"
+                id="tempatLahir"
+                class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
+              />
+            </div>
+            <div class="w-full px-4 mb-8">
+              <label for="tanggalLahir" class="text-base font-bold text-primary dark:text-darkSecondary "
+                >Tanggal lahir</label
+              >
+              <input
+                type="date"
+                id="tanggalLahir"
+                name="Tanggal-Lahir"
+                class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
+              />
+            </div>
+            <div class="w-full px-4 mb-8">
+              <label for="alamat" class="text-base font-bold text-primary dark:text-darkSecondary "
+                >alamat</label
+              >
+              <input
+                type="text"
+                name="Alamat"
+                id="alamat"
+                class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
+              />
+            </div>
+            <div class="w-full px-4 mb-8">
+              <label for="wa" class="text-base font-bold text-primary dark:text-darkSecondary "
+                >No WhatsApp</label
+              >
+              <input
+                type="text"
+                name="WhatsApp"
+                id="wa"
+                class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
+              />
+            </div>
+            <div class="w-full px-4 mb-8">
+              <label for="email" class="text-base font-bold text-primary dark:text-darkSecondary "
+                >Email</label
+              >
+              <input 
+                type="email"
+                name="Email"
+                id="email"
+                class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
+              />
+            </div>
+            <div class="w-full px-4 mb-8">
+              <label for="bakat" class="text-base font-bold text-primary dark:text-darkSecondary "
+                >Bakat</label
+              >
+              <input
+                type="text"
+                name="Bakat"
+                id="bakat"
+                class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
+              />
+            </div>
+            <div class="w-full px-4 mb-8">
+              <label class="text-base font-bold text-primary dark:text-darkSecondary "
+                >Alasan masuk HAMKA</label
+              >
+              <textarea
+                type="text"
+                name="Alasan"
+                id="text-area"
+                class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border- h-32"
+              ></textarea>
+            </div>
+            <div class="w-full px-4 mb-8">
+              <h1 class="text-base font-bold text-primary dark:text-darkSecondary ">Minat Departemen</h1>
+              <select
+                name="Departemen"
+                id=""
+                class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
+              >
+                <option value="none">Pilih Departemen</option>
+                <option value="Organisasi">Organisasi</option>
+                <option value="Penelitian-pengembangan">
+                  Penelitian & pengembangan
+                </option>
+                <option value="Eksternal">Eksternal</option>
+                <option value="kominfo">Kominfo</option>
+              </select>
+            </div>
+            <div class="w-full px-4 mb-8">
+              <label for="foto" class="text-base font-bold text-primary dark:text-darkSecondary "
+                >Pas foto</label
+              >
+              <input
+                type="file"
+                id="foto"
+                name="Foto"
+                class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
+                accept="image/*"
+              />
+              <img src="" alt="" class="pasFoto" />
+              <p class="text-secondary text-xs dark:text-darkSecondary mt-2"> - Pastikan foto telah diganti dengan nama kamu. *contoh: Abdul.jpg </p>
+              <p class="text-secondary text-xs dark:text-darkSecondary"> - Format file foto yang dapat dikirimkan .png , .jpg  </p>
+              <p class="text-secondary text-xs dark:text-darkSecondary"> - Ukuran maksimal foto 2MB. </p>
+            </div>
+            <div class="w-full px-4 lg:w-1/2 lg:mx-auto">
+              <button
+                type="submit"
+                class="btnKirim text-base font-semibold bg-primary dark:bg-darkSecondary dark:text-dark  py-3 px-8 text-white rounded-full w-full hover:opacity-80 hover:shadow-lg transition duration-500"
+              >
+                kirim 
+              </button>
+              <button
+                disabled
+                type="button"
+                class="hidden btnLoading text-base font-semibold bg-primary dark:bg-darkSecondary dark:text-dark py-3 px-8 text-white rounded-full w-full hover:opacity-80 hover:shadow-lg transition duration-500"
+              >
+                <svg
+                  aria-hidden="true"
+                  role="status"
+                  class="inline w-4 h-4 mr-3 text-white animate-spin"
+                  viewBox="0 0 100 101"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                    fill="#E5E7EB"
+                  />
+                  <path
+                    d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                    fill="currentColor"
+                  />
+                </svg>
+                Memproses...
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- form daftar End -->
+
+    <!--Footer start  -->
+    <footer class="bg-dark   pt-24 pb-20">
+      <div class="container">
+        <div class="flex flex-wrap">
+          <div class="w-full px-4 mb-12 text-slate-300 text-center font-medium">
+            <h2 class="text-white font-bold text-4xl mb-5">HAMKA</h2>
+            <h3 class="font-bold text-2xl mb-2">Hubungi Kami</h3>
+            <p>hamkasiu.10@gmail.com</p>
+            <p>
+              Jl. Bojonegara No.45, Panggung Rawi, Kec. Jombang, Kota Cilegon,
+              Banten 42412
+            </p>
+          </div>
+
+          <div class="w-full px-4 mb-12 text-slate-300 text-center">
+            <h3 class="font-semibold text-xl text-white mb-5">Tautan</h3>
+            <ul class="flex justify-center">
+              <li>
+                <a
+                  href="#home"
+                  class="mx-2 text-base text-slate-300 hover:text-primary mb-3"
+                  >Beranda</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  class="mx-2 text-base text-slate-300 hover:text-primary mb-3"
+                  >Tentang saya</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#gallery"
+                  class="mx-2 text-base text-slate-300 hover:text-primary mb-3"
+                  >Gallery</a
+                >
+              </li>
+
+              <li>
+                <a
+                  href="#daftar"
+                  class="mx-2 text-base text-slate-300 hover:text-primary mb-3"
+                  >Daftar</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="w-full pt-10 pb-4 border-t border-slate-700">
+          <div class="flex items-center justify-center mb-5">
+            <!-- Instagram -->
+            <a
+              href="#"
+              target="_blank"
+              class="w-9 h-9 mr-3 rounded-full flex items-center justify-center border border-slate-300 text-slate-300 hover:bg-primary hover:border-primary hover:text-white"
+            >
+              <svg
+                role="img"
+                class="fill-current"
+                width="20"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Instagram</title>
+                <path
+                  d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"
+                />
+              </svg>
+            </a>
+            <!-- Tiktok -->
+            <a
+              href="#"
+              target="_blank"
+              class="w-9 h-9 mr-3 rounded-full flex items-center justify-center border border-slate-300 text-slate-300 hover:bg-primary hover:border-primary hover:text-white"
+            >
+              <svg
+                role="img"
+                class="fill-current"
+                width="20"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>TikTok</title>
+                <path
+                  d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--Footer end  -->
+
+    <!-- Back to Top Start -->
+    <a
+      href="#home"
+      class="fixed hidden justify-center items-center z-[9999] bottom-16 right-8 p-4 h-10 w-10 md:h-14 md:w-14 bg-primary dark:bg-darkSecondary rounded-full"
+      id="toTop"
+    >
+      <span
+        class="inline-block h-2 w-2 md:h-5 md:w-5 justify-center border-t-2 border-l-2 rotate-45 md:mt-2 hover:animate-pulse"
+      ></span>
+    </a>
+    <!-- Back to Top End -->
+
+    <!-- sweetalert -->
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbw16xDSxFlTI0pE351TlsGLWUPaCBlXOqUWnVwJc2k4ePnvV1qyh5ah9GC3ia0BWt0x/exec";
+      const form = document.forms["submit-to-google-sheet"];
+      const myAlert = document.querySelector(".my-alert");
+      const btnKirim = document.querySelector(".btnKirim");
+      const btnloading = document.querySelector(".btnLoading");
+      const btnClose = document.querySelector(".btnClose");
+      const daftar = document.querySelector('#daftar')
+
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        // Tampilkan tombol loading, hilangkan tombol kirim
+        btnloading.classList.toggle("hidden");
+        btnKirim.classList.toggle("hidden");
+
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => {
+            // Tampilkan tombol kirim, hilangkan tombol loading
+            btnloading.classList.toggle("hidden");
+            btnKirim.classList.toggle("hidden");
+            // reset form
+            form.reset();
+            // alert('Berhasil!')
+            Swal.fire({
+              title:'Terima kasih! data diri berhasil dikirim😊',
+              icon:'success',
+              timer:3000
+            })
+            console.log("Success!", response);
+          })
+          .catch((error) => console.error("Error!", error.message));
+      });
+    </script>
+
+    
+    <script src="dist/js/script.js"></script>
+  </body>
+</html>

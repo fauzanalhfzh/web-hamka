@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  font-family: 'Poppins', sans-serif;
+}
+
+.navbar-fixed{
+  @apply fixed z-[9999] bg-white bg-opacity-70 backdrop-blur-sm dark:bg-dark dark:bg-opacity-50;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+.navbarBottom-fixed{
+  @apply fixed z-[9999] bg-white bg-opacity-70 backdrop-blur-md dark:bg-dark dark:bg-opacity-50;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+#dark-toggle:checked ~ label div.toggle-circle {
+  @apply translate-x-3 
+}
+
+.toggle-circle {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+#dark-toggle:checked + label .toggle-circle {
+  transform: translateY(-50%) scale(0.5);
+  top: -50%; /* Geser lingkaran ke atas dan putar saat dalam mode Dark */
+  background-color: #64748b; 
+  /*box-shadow: 0 4px 4px 0 rgba(255, 255, 0, 0.25);/* Warna lingkaran saat dalam mode Dark */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
