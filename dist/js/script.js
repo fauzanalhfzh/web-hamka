@@ -52,30 +52,43 @@ joinButton.addEventListener('click', function () {
 
 // upload img to spreadsheet & google drive
 
-let url =
-        "https://script.google.com/macros/s/AKfycbw16xDSxFlTI0pE351TlsGLWUPaCBlXOqUWnVwJc2k4ePnvV1qyh5ah9GC3ia0BWt0x/exec";
-      let file = document.querySelector("#foto");
-      let img = document.querySelector(".pasFoto");
-      const submit = document.querySelector(".btnKirim");
+let url = "https://script.google.com/macros/s/AKfycbw16xDSxFlTI0pE351TlsGLWUPaCBlXOqUWnVwJc2k4ePnvV1qyh5ah9GC3ia0BWt0x/exec";
+let pasFoto = document.querySelector("#pasFoto");
+let sertMoriest = document.querySelector("#sertMoriest");
+let sertLKM = document.querySelector("#sertLKM");
+const submit = document.querySelector(".btnKirim");
+const previewImages = document.querySelector(".preview-images");
 
-      submit.addEventListener("click", () => {
-        let fr = new FileReader();
-        fr.addEventListener("loadend", () => {
-          let res = fr.result;
-          // img.src = res;
-          let spt = res.split("base64,")[1];
-          // console.log(spt);
-          let obj = {
-            base64: spt,
-            type: file.files[0].type,
-            name: file.files[0].name,
-          };
-          fetch(url, {
-            method: "POST",
-            body: JSON.stringify(obj),
-          })
-            .then((r) => r.text())
-            .then((data) => console.log(data));
-        });
-        fr.readAsDataURL(file.files[0]);
+submit.addEventListener("click", () => {
+  uploadImages(pasFoto.files);
+  uploadImages(sertMoriest.files);
+  uploadImages(sertLKM.files);
+});
+
+function uploadImages(files) {
+  for (let i = 0; i < files.length; i++) {
+    let fr = new FileReader();
+    fr.addEventListener("loadend", () => {
+      let res = fr.result;
+      let spt = res.split("base64,")[1];
+      let obj = {
+        base64: spt,
+        type: files[i].type,
+        name: files[i].name,
+      };
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(obj),
+      })
+      .then((r) => r.text())
+      .then((data) => {
+        console.log(data);
+        // Tampilkan gambar yang diunggah sebagai preview
+        // let img = document.createElement("img");
+        // img.src = res;
+        // previewImages.appendChild(img);
       });
+    });
+    fr.readAsDataURL(files[i]);
+  }
+}
