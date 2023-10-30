@@ -55,11 +55,13 @@ joinButton.addEventListener('click', function () {
 let url = "https://script.google.com/macros/s/AKfycbw16xDSxFlTI0pE351TlsGLWUPaCBlXOqUWnVwJc2k4ePnvV1qyh5ah9GC3ia0BWt0x/exec";
 let pasFoto = document.querySelector("#pasFoto");
 let sertMoriest = document.querySelector("#sertMoriest");
+let sertAMT = document.querySelector("#sertAMT");
 let sertLKM = document.querySelector("#sertLKM");
 const submit = document.querySelector(".btnKirim");
 const previewImages = document.querySelector(".preview-images");
 
 submit.addEventListener("click", () => {
+  uploadImages(sertAMT.files)
   uploadImages(pasFoto.files);
   uploadImages(sertMoriest.files);
   uploadImages(sertLKM.files);
